@@ -1,1 +1,1 @@
-# -terraform-azure-policies
+# terraform-azure-policies
