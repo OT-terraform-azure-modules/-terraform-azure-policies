@@ -62,37 +62,35 @@ variable "policy_assignment_name" {
 variable "resource_group_id" {
   type        = string
   default     = null
-  description = " (Required) The ID of the Resource Group where this Policy Assignment should be created. Resource group id should be in /subscriptions/subscription_id/resourceGroups/resource_group_name format."
+  description = "The ID of the Resource Group where the Policy Assignment should be created. Resource group id should be in /subscriptions/subscription_id/resourceGroups/resource_group_name format."
 }
 
 variable "resource_id" {
   type        = string
   default     = null
-  description = " (Required) The ID of the Resource Group where this Policy Assignment should be created. Resource group id should be in /subscriptions/subscription_id/resourceGroups/resource_group_name/providers/Microsoft.Network/virtualNetworks/test format."
+  description = "The ID of the Resource where the Policy Assignment should be created. Resource group id should be in /subscriptions/subscription_id/resourceGroups/resource_group_name/providers/Microsoft.Network/virtualNetworks/test format."
 }
 
 variable "management_group_id" {
   type        = string
   default     = null
-  description = " (Required) The ID of the Resource Group where this Policy Assignment should be created. Management group id should be in /providers/Microsoft.Management/managementGroups/management_group_id format."
+  description = "The ID of the Management Group where the Policy Assignment should be created. Management group id should be in /providers/Microsoft.Management/managementGroups/management_group_id format."
 }
 
 variable "subscription_id" {
   type        = string
   default     = null
-  description = " (Required) The ID of the Resource Group where this Policy Assignment should be created. Subscription id should be in /subscriptions/subscription_id format."
+  description = "The ID of the subscription Group where the Policy Assignment should be created. Subscription id should be in /subscriptions/subscription_id format."
 }
 
 variable "policy_definition_id" {
   type        = string
-  default     = null
   description = "(Required) The ID of the Policy Definition to be applied at the specified Scope."
 }
 
 variable "assignment_location" {
   type        = string
-  default     = null
-  description = "(Required) The Azure location where this policy assignment should exist. This is required when an Identity is assigned. "
+  description = "(Required) The Azure location where this policy assignment should exist."
 }
 
 variable "assignment_description" {
@@ -131,16 +129,10 @@ variable "assignment_not_scopes" {
   default     = []
 }
 
-variable "assignment_identity_ids" {
-  type        = list(string)
-  default     = []
-  description = "(Optional) A list of User Managed Identity IDs which should be assigned to the Policy Definition."
-}
-
 variable "identity_type" {
   type        = string
   default     = "SystemAssigned"
-  description = "(Required) The Type of Managed Identity which should be added to this Policy Definition. Possible values are SystemAssigned and UserAssigned."
+  description = "(Required) The Type of Managed Identity which should be added to the Policy Definition. Possible values are SystemAssigned and UserAssigned."
 }
 
 variable "identity_ids" {
