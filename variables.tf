@@ -5,13 +5,13 @@ variable "policy_name" {
 
 variable "policy_type" {
   type        = string
-  description = "(Required)The intitative policy type. Possible values are BuiltIn or Custom. Changing this forces a new resource to be created"
+  description = "(Required) The intitative policy type. Possible values are BuiltIn or Custom. Changing this forces a new resource to be created"
   default     = "Custom"
 }
 
 variable "policy_manner" {
   type        = string
-  description = "(Required)Simple policy or set of policy i.e., initiative. Values can be Policy or initiative"
+  description = "(Required) Simple policy or set of policy i.e., initiative. Values can be Policy or initiative"
 }
 
 variable "policy_display_name" {
@@ -39,7 +39,7 @@ variable "policy_rule" {
 
 variable "policy_parameters" {
   type        = any
-  default      = null
+  default     = null
   description = "(Optional) Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition."
 }
 
@@ -51,7 +51,7 @@ variable "metadata" {
 
 variable "policy_def_scope_type" {
   type        = string
-  description = "(Required)The scope on which policy should be assigned . Possible values are resource-group, resource, management-group, subscription."
+  description = "(Required) The scope on which policy should be assigned . Possible values are resource-group, resource, management-group, subscription."
 }
 
 variable "policy_assignment_name" {
@@ -62,25 +62,25 @@ variable "policy_assignment_name" {
 variable "resource_group_id" {
   type        = string
   default     = null
-  description = "The ID of the Resource Group where the Policy Assignment should be created. Resource group id should be in /subscriptions/subscription_id/resourceGroups/resource_group_name format."
+  description = "(Optional) The ID of the Resource Group where the Policy Assignment should be created. Resource group id should be in /subscriptions/subscription_id/resourceGroups/resource_group_name format."
 }
 
 variable "resource_id" {
   type        = string
   default     = null
-  description = "The ID of the Resource where the Policy Assignment should be created. Resource group id should be in /subscriptions/subscription_id/resourceGroups/resource_group_name/providers/Microsoft.Network/virtualNetworks/test format."
+  description = "(Optional) The ID of the Resource where the Policy Assignment should be created. Resource group id should be in /subscriptions/subscription_id/resourceGroups/resource_group_name/providers/Microsoft.Network/virtualNetworks/test format."
 }
 
 variable "management_group_id" {
   type        = string
   default     = null
-  description = "The ID of the Management Group where the Policy Assignment should be created. Management group id should be in /providers/Microsoft.Management/managementGroups/management_group_id format."
+  description = "(Optional) The ID of the Management Group where the Policy Assignment should be created. Management group id should be in /providers/Microsoft.Management/managementGroups/management_group_id format."
 }
 
 variable "subscription_id" {
   type        = string
   default     = null
-  description = "The ID of the subscription Group where the Policy Assignment should be created. Subscription id should be in /subscriptions/subscription_id format."
+  description = "(Optional) The ID of the subscription Group where the Policy Assignment should be created. Subscription id should be in /subscriptions/subscription_id format."
 }
 
 variable "policy_definition_id" {
@@ -144,7 +144,7 @@ variable "identity_ids" {
 variable "initiative_policy_definition_reference" {
   type        = any
   description = "List of custom policy definitions"
-  default = []
+  default     = []
 }
 
 variable "initiative_policy_definition_group" {

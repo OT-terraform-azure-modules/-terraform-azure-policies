@@ -8,15 +8,15 @@ module "policy" {
     "category" : "General"
   }
   initiative_policy_definition_reference = [{
-    "policyID" = "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d"
+    "policyID"     = "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d"
     "reference_id" = "Audit VMs that do not use managed disks"
-  },
-  {
-    "policyID" = "/providers/Microsoft.Authorization/policyDefinitions/0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56"
-    "reference_id" = "Audit virtual machines without disaster recovery configured"
+    },
+    {
+      "policyID"     = "/providers/Microsoft.Authorization/policyDefinitions/0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56"
+      "reference_id" = "Audit virtual machines without disaster recovery configured"
   }]
   policy_def_scope_type  = "resource-group"
   policy_assignment_name = "testassign"
-  resource_group_id      = "/subscriptions/4c93bx9q-1cbc-4230-8418-f8df57419q1a/resourceGroups/test_rg"
+  resource_group_id      = "/subscriptions/XXXXXXXX-XXXX-1111-2222-XXXXXXXXXXXXXXX/resourceGroups/test_rg"
   assignment_location    = "eastus"
 }
