@@ -17,9 +17,9 @@ Terraform Module to create an Azure policy with a set of policy as initiative or
 
 - The creation of policy depends on the `policy_manner` variable . 
 ### Case1:
-  When `policy_manner` = Policy , then it will create a single policy. 
+  When `policy_manner = Policy` , then it will create a single policy. 
 ### Case2:
-  When `policy_manner` = Initiative , then you have to provide policy_definition_id of the set of policy that you want to combine. 
+  When `policy_manner = Initiative` , then you have to provide policy_definition_id of the set of policy that you want to combine. 
 
 ## Resources supported:
 
@@ -71,7 +71,7 @@ module "policy" {
 
   policy_def_scope_type  = "subscription"
   policy_assignment_name = "testassign"
-  subscription_id      = "/subscriptions/4c93bx9q-1cbc-4230-8418-f8df57419q1a"
+  subscription_id      = "/subscriptions/XXXXXXXX-XXXX-1111-2222-XXXXXXXXXXXXXXX"
   assignment_location    = "eastus"
   assignment_parameters  = {
           "allowedLocations": {
@@ -102,7 +102,7 @@ module "policy" {
   }]
   policy_def_scope_type  = "resource-group"
   policy_assignment_name = "testassign"
-  resource_group_id      = "/subscriptions/4c93bx9q-1cbc-4230-8418-f8df57419q1a/resourceGroups/test_rg"
+  resource_group_id      = "/subscriptions/XXXXXXXX-XXXX-1111-2222-XXXXXXXXXXXXXXX/resourceGroups/test_rg"
   assignment_location    = "eastus"
 }
 ```

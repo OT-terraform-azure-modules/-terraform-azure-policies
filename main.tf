@@ -28,21 +28,21 @@ resource "azurerm_policy_set_definition" "initiative_policy" {
   dynamic "policy_definition_reference" {
     for_each = var.initiative_policy_definition_reference
     content {
-        policy_definition_id = lookup(policy_definition_reference.value,"policyID")
-        parameter_values     = lookup(policy_definition_reference.value,"parameter_values", null)
-        reference_id         = lookup(policy_definition_reference.value,"reference_id", null)
-        policy_group_names   = lookup(policy_definition_reference.value,"policy_group_names", null)
+      policy_definition_id = lookup(policy_definition_reference.value, "policyID")
+      parameter_values     = lookup(policy_definition_reference.value, "parameter_values", null)
+      reference_id         = lookup(policy_definition_reference.value, "reference_id", null)
+      policy_group_names   = lookup(policy_definition_reference.value, "policy_group_names", null)
     }
   }
 
   dynamic "policy_definition_group" {
     for_each = var.initiative_policy_definition_group
     content {
-      name                              = lookup(policy_definition_group.value,"name")
-      display_name                      = lookup(policy_definition_group.value,"display_name", null)
-      category                          = lookup(policy_definition_group.value,"category", null)
-      description                       = lookup(policy_definition_group.value,"description", null)
-      additional_metadata_resource_id   = lookup(policy_definition_group.value,"metadata_resource_id", null)
+      name                            = lookup(policy_definition_group.value, "name")
+      display_name                    = lookup(policy_definition_group.value, "display_name", null)
+      category                        = lookup(policy_definition_group.value, "category", null)
+      description                     = lookup(policy_definition_group.value, "description", null)
+      additional_metadata_resource_id = lookup(policy_definition_group.value, "metadata_resource_id", null)
     }
   }
 }
@@ -50,7 +50,7 @@ resource "azurerm_policy_set_definition" "initiative_policy" {
 resource "azurerm_resource_group_policy_assignment" "assign_policy_rg" {
   count                = var.policy_def_scope_type == "resource-group" ? 1 : 0
   name                 = var.policy_assignment_name
-  policy_definition_id = try(azurerm_policy_definition.policy[0].id , azurerm_policy_set_definition.initiative_policy[0].id)
+  policy_definition_id = try(azurerm_policy_definition.policy[0].id, azurerm_policy_set_definition.initiative_policy[0].id)
   resource_group_id    = var.resource_group_id
   location             = var.assignment_location
   description          = var.assignment_description
@@ -69,8 +69,8 @@ resource "azurerm_resource_group_policy_assignment" "assign_policy_rg" {
 resource "azurerm_resource_policy_assignment" "assign_policy_resource" {
   count                = var.policy_def_scope_type == "resource" ? 1 : 0
   name                 = var.policy_assignment_name
-  policy_definition_id = try(azurerm_policy_definition.policy[0].id , azurerm_policy_set_definition.initiative_policy[0].id)
-  resource_id          = try(var.resource_id, null) 
+  policy_definition_id = try(azurerm_policy_definition.policy[0].id, azurerm_policy_set_definition.initiative_policy[0].id)
+  resource_id          = try(var.resource_id, null)
   location             = var.assignment_location
   display_name         = var.assignment_display_name
   description          = var.assignment_description
@@ -81,14 +81,14 @@ resource "azurerm_resource_policy_assignment" "assign_policy_resource" {
 
   identity {
     type         = var.identity_type
-     identity_ids = var.identity_type == "UserAssigned" ? var.identity_ids : null
+    identity_ids = var.identity_type == "UserAssigned" ? var.identity_ids : null
   }
 }
 
 resource "azurerm_management_group_policy_assignment" "assign_policy_mgmt" {
   count                = var.policy_def_scope_type == "management-group" ? 1 : 0
   name                 = var.policy_assignment_name
-  policy_definition_id = try(azurerm_policy_definition.policy[0].id , azurerm_policy_set_definition.initiative_policy[0].id)
+  policy_definition_id = try(azurerm_policy_definition.policy[0].id, azurerm_policy_set_definition.initiative_policy[0].id)
   management_group_id  = var.management_group_id
   location             = var.assignment_location
   display_name         = var.assignment_display_name
@@ -107,7 +107,7 @@ resource "azurerm_management_group_policy_assignment" "assign_policy_mgmt" {
 resource "azurerm_subscription_policy_assignment" "assign_policy_sub" {
   count                = var.policy_def_scope_type == "subscription" ? 1 : 0
   name                 = var.policy_assignment_name
-  policy_definition_id = try(azurerm_policy_definition.policy[0].id , azurerm_policy_set_definition.initiative_policy[0].id)
+  policy_definition_id = try(azurerm_policy_definition.policy[0].id, azurerm_policy_set_definition.initiative_policy[0].id)
   subscription_id      = var.subscription_id
   location             = var.assignment_location
   display_name         = var.assignment_display_name
