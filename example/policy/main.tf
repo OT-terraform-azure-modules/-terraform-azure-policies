@@ -9,7 +9,7 @@ module "policy" {
   policy_type         = "Custom"
   mode                = "All"
   policy_display_name = "test policy"
-  policy_rule         = {
+  policy_rule = {
     "if" : {
       "not" : {
         "field" : "location"
@@ -20,7 +20,7 @@ module "policy" {
       "effect" : "deny"
     }
   }
-  policy_parameters   = {
+  policy_parameters = {
     "allowedLocations" : {
       "type" : "Array",
       "metadata" : {
@@ -30,17 +30,17 @@ module "policy" {
       }
     }
   }
-  metadata            = {
+  metadata = {
     "category" : "General"
   }
 
   policy_def_scope_type  = "subscription"
   policy_assignment_name = "testassign"
-  subscription_id      = "/subscriptions/4c93bx9q-1cbc-4230-8418-f8df57419q1a"
+  subscription_id        = "/subscriptions/XXXXXXXX-XXXX-1111-222-XXXXXXXXXXXXXXX"
   assignment_location    = "eastus"
-  assignment_parameters  = {
-          "allowedLocations": {
-            "value": [ "West Europe" ]
-          }
-        }
+  assignment_parameters = {
+    "allowedLocations" : {
+      "value" : ["West Europe"]
+    }
+  }
 }
