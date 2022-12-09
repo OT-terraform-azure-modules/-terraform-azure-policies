@@ -83,11 +83,6 @@ variable "subscription_id" {
   description = "(Optional) The ID of the subscription Group where the Policy Assignment should be created. Subscription id should be in /subscriptions/subscription_id format."
 }
 
-variable "policy_definition_id" {
-  type        = string
-  description = "(Required) The ID of the Policy Definition to be applied at the specified Scope."
-}
-
 variable "assignment_location" {
   type        = string
   description = "(Required) The Azure location where this policy assignment should exist."
