@@ -1,6 +1,3 @@
-provider "azurerm" {
-  features {}
-}
 
 resource "azurerm_policy_definition" "policy" {
   count               = var.policy_type == "Custom" && var.policy_manner == "Policy" ? 1 : 0

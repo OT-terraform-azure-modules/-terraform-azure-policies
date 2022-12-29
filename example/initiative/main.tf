@@ -1,3 +1,7 @@
+provider "azurerm" {
+  features {}
+}
+
 module "policy" {
   source              = "git::https://github.com/OT-terraform-azure-modules/terraform-azure-policies.git"
   policy_manner       = "Initiative"
