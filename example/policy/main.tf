@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 module "policy" {
-  source              = "../../"
+  source              = "git::https://github.com/OT-terraform-azure-modules/terraform-azure-policies.git"
   policy_manner       = "Policy"
   policy_name         = "test"
   policy_type         = "Custom"
